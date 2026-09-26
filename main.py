@@ -63,7 +63,16 @@ def functionality_to_choices(options):
          if not found:
             print("Student not found confirm the ID entered")  
     elif options == 4:
-        print("Delete Student Selected")
+        delete = input("Select the ID you want to delete")
+        deleted = False
+        for student in students:
+           if delete == student["ID"]:
+              students.remove(student)
+              deleted = True
+
+        if not deleted:
+              print(f"{delete} does not exist") 
+    
     elif options == 5:
         print("Exiting...")
     else:
