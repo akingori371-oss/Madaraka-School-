@@ -43,7 +43,7 @@ def functionality_to_choices(options):
         for student in students:
            print(
            f"\n ID : {student["ID"]}\n" 
-           f"name: {student["name"]}\n"
+           f"name: {student['name']}\n"
            f"age: {student["age"]}\n"
            f"course: {student["course"]}"  )
 
