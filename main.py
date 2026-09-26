@@ -40,9 +40,28 @@ def functionality_to_choices(options):
          print("Student added Successfully!") 
 
     elif options == 2:
-        print("View Student Selected")
+        for student in students:
+           print(
+           f"\n ID : {student["ID"]}\n" 
+           f"name: {student["name"]}\n"
+           f"age: {student["age"]}\n"
+           f"course: {student["course"]}"  )
+
     elif options == 3:
-        print("Search Student Selected")
+      search = input("Enter the student ID")
+      found = False
+      for student in students:
+         if search == student["ID"]:
+            found = True
+            print(
+               f"{student["name"]}\n"
+               f"{student["age"]}\n"
+               f"{student["course"]}\n"
+            )
+            break
+         
+         if not found:
+            print("Student not found confirm the ID entered")  
     elif options == 4:
         print("Delete Student Selected")
     elif options == 5:
