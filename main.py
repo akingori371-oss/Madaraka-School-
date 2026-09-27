@@ -1,4 +1,5 @@
 from grades import grading_system, average_marks, grade_statistics
+from oop import Student
 import json
 
 with open("students.json", "r") as file:
@@ -27,29 +28,17 @@ def functionality_to_choices(options):
             age = input("Enter the students age")
             Course = input("Enter the students Course")
 
-            new_students = {
-                "ID": f"{id}",
-                "name": f"{Name}",
-                "age": f"{age}",
-                "course": f"{Course}",
-                "grade": "Not assigned",
-                "marks": 0
-            }
+            new_student = Student(id, Name, age, Course)
 
-            students.append(new_students)
+            students.append(new_student)
+          
             print("Student added Successfully!")
             save_students()
 
     elif options == 2:
         for student in students:
-            print(
-                f"\nID: {student['ID']}\n"
-                f"name: {student['name']}\n"
-                f"age: {student['age']}\n"
-                f"course: {student['course']}\n"
-                f"grade: {student['grade']}\n"
-                f"marks: {student['marks']}"
-            )
+          new_student = Student(id, Name, age, Course)
+          students.append(new_student)
 
     elif options == 3:
         search = input("Enter the student ID")
@@ -93,9 +82,7 @@ def functionality_to_choices(options):
                 age = input("Write the new age for the student")
                 course = input("Write the new course for the student")
 
-                student["name"] = name
-                student["age"] = age
-                student["course"] = course
+                student.update(name, age, course)
 
                 updated = True
                 save_students()
@@ -114,8 +101,7 @@ def functionality_to_choices(options):
                 marks = int(input("Write the students marks"))
                 finalgrade = grading_system(marks)
 
-                student["marks"] = marks
-                student["grade"] = finalgrade
+                student.add_grade(marks, finalgrade)
 
                 graded = True
                 save_students()
