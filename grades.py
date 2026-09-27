@@ -1,3 +1,4 @@
+
 def grading_system(marks):
     if marks >= 80:
         return "A"
@@ -12,4 +13,13 @@ def grading_system(marks):
     else:
         return "Failed!"   
 
-    def average_marks():                 
+def average_marks(students): 
+   marks = []  
+   for student in students:
+       mark = {student["marks"]}
+       marks.append(mark)
+   average = sum(marks) / len(students)
+
+   return f"The average marks are {average}"
+
+       

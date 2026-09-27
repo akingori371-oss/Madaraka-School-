@@ -1,4 +1,4 @@
-from grades import grading_system
+from grades import grading_system,average_marks
 students = [
     {
         "ID": "001",
@@ -103,6 +103,7 @@ def functionality_to_choices(options):
           if grade == student["ID"]:
            marks = int(input("Write the students marks"))
            finalgrade = grading_system(marks)
+           student["marks"] = marks
            student["grade"] = f"{finalgrade}"
            graded = True
            break
@@ -141,5 +142,6 @@ while options != :
         "Option 4 = Delete Student\n"
         "Option 5 = Update a student\n"
         "Option 6 = add grades\n"
+        "Option 7 = grade statistics"
         "Choose an option: "
     ))
