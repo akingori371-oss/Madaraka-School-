@@ -1,18 +1,21 @@
-from grades import grading_system,average_marks
+from grades import grading_system, average_marks
+
 students = [
     {
         "ID": "001",
         "name": "Anthony",
         "age": 19,
         "course": "Software Engineering",
-        "grade" : "Not assigned"
+        "grade": "Not assigned",
+        "marks": 0
     },
     {
         "ID": "002",
         "name": "Kevin",
         "age": 22,
         "course": "Data Science",
-        "grade" : "Not assigned"
+        "grade": "Not assigned",
+        "marks": 0
     }
 ]
 
@@ -21,102 +24,113 @@ def functionality_to_choices(options):
     if options == 1:
         id = input("Enter the students ID")
         duplicate = False
+
         for student in students:
-         if student["ID"] == id:
-          duplicate = True
-          print(f"{id} already exists")
-          break
+            if student["ID"] == id:
+                duplicate = True
+                print(f"{id} already exists")
+                break
 
-        if not duplicate:  
-         Name = input("Enter the students name")
-         age = input("Enter the students age")
-         Course = input("Enter the students Course")
+        if not duplicate:
+            Name = input("Enter the students name")
+            age = input("Enter the students age")
+            Course = input("Enter the students Course")
 
-         new_students = {
-         
-             "ID": f"{id}",
-             "name": f"{Name}",
-             "age": f"{age}",
-             "course": f"{Course}"
-         }
-         students.append(new_students)
-         print("Student added Successfully!") 
+            new_students = {
+                "ID": f"{id}",
+                "name": f"{Name}",
+                "age": f"{age}",
+                "course": f"{Course}",
+                "grade": "Not assigned",
+                "marks": 0
+            }
+
+            students.append(new_students)
+            print("Student added Successfully!")
 
     elif options == 2:
         for student in students:
-           print(
-           f"\n ID : {student["ID"]}\n" 
-           f"name: {student['name']}\n"
-           f"age: {student["age"]}\n"
-           f"course: {student["course"]}\n"  
-           f"grade: {student['grade']}"
-           )
-    elif options == 3:
-      search = input("Enter the student ID")
-      found = False
-      for student in students:
-         if search == student["ID"]:
-            found = True
             print(
-               f"{student["name"]}\n"
-               f"{student["age"]}\n"
-               f"{student["course"]}\n"
+                f"\nID: {student['ID']}\n"
+                f"name: {student['name']}\n"
+                f"age: {student['age']}\n"
+                f"course: {student['course']}\n"
+                f"grade: {student['grade']}\n"
+                f"marks: {student['marks']}"
             )
-            break
-         
-         if not found:
-            print("Student not found confirm the ID entered")  
+
+    elif options == 3:
+        search = input("Enter the student ID")
+        found = False
+
+        for student in students:
+            if search == student["ID"]:
+                found = True
+                print(
+                    f"{student['name']}\n"
+                    f"{student['age']}\n"
+                    f"{student['course']}\n"
+                )
+                break
+
+        if not found:
+            print("Student not found confirm the ID entered")
+
     elif options == 4:
         delete = input("Select the ID you want to delete")
         deleted = False
+
         for student in students:
-           if delete == student["ID"]:
-              students.remove(student)
-              deleted = True
+            if delete == student["ID"]:
+                students.remove(student)
+                deleted = True
+                break
 
         if not deleted:
-              print(f"{delete} does not exist") 
-    
+            print(f"{delete} does not exist")
+
     elif options == 5:
         update = input("Choose the student ID to be updated")
         updated = False
+
         for student in students:
-          if update == student["ID"]:
-             name = input("Write the new name for the student") 
-             age = input("Write the new age for the student") 
-             course = input("Write the new course for the student") 
+            if update == student["ID"]:
+                name = input("Write the new name for the student")
+                age = input("Write the new age for the student")
+                course = input("Write the new course for the student")
 
-             student["name"] = name
-             student["age"] = age
-             student["course"] = course
+                student["name"] = name
+                student["age"] = age
+                student["course"] = course
 
-             updated = True
-             print("Update Successfull!")
+                updated = True
+                print("Update Successfull!")
+                break
 
         if not updated:
-             print("The student was not found")  
+            print("The student was not found")
 
     elif options == 6:
-       grade = input("Choose the student ID")
-       graded = False
-       for student in students:
-          if grade == student["ID"]:
-           marks = int(input("Write the students marks"))
-           finalgrade = grading_system(marks)
-           student["marks"] = marks
-           student["grade"] = f"{finalgrade}"
-           graded = True
-           break
-       if not graded:
-          print(f"{grade} was not found")
-       
+        grade = input("Choose the student ID")
+        graded = False
 
-            
+        for student in students:
+            if grade == student["ID"]:
+                marks = int(input("Write the students marks"))
+                finalgrade = grading_system(marks)
 
-             
+                student["marks"] = marks
+                student["grade"] = finalgrade
 
-    else:
-        print("Invalid option")
+                graded = True
+                break
+
+        if not graded:
+            print(f"{grade} was not found")
+
+    elif options == 7:
+        result = average_marks(students)
+        print(result)
 
 
 options = int(input(
@@ -126,13 +140,12 @@ options = int(input(
     "Option 4 = Delete Student\n"
     "Option 5 = Update a student\n"
     "Option 6 = Add grades\n"
-   
+    "Option 7 = Average marks\n"
+    "Option 8 = Exit\n"
     "Choose an option: "
 ))
 
-
-while options != :
-
+while options != 8:
     functionality_to_choices(options)
 
     options = int(input(
@@ -141,7 +154,8 @@ while options != :
         "Option 3 = Search Students\n"
         "Option 4 = Delete Student\n"
         "Option 5 = Update a student\n"
-        "Option 6 = add grades\n"
-        "Option 7 = grade statistics"
+        "Option 6 = Add grades\n"
+        "Option 7 = Grade statistics\n"
+        "Option 8 = Exit\n"
         "Choose an option: "
     ))
