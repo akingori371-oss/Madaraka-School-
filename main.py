@@ -32,9 +32,9 @@ def functionality_to_choices(options):
          new_students = {
          
              "ID": f"{id}",
-             "Name": f"{Name}",
-             "Age": f"{age}",
-             "Course": f"{Course}"
+             "name": f"{Name}",
+             "age": f"{age}",
+             "course": f"{Course}"
          }
          students.append(new_students)
          print("Student added Successfully!") 
@@ -74,7 +74,27 @@ def functionality_to_choices(options):
               print(f"{delete} does not exist") 
     
     elif options == 5:
-        print("Exiting...")
+        update = input("Choose the student ID to be updated")
+        updated = False
+        for student in students:
+          if update == student["ID"]:
+             name = input("Write the new name for the student") 
+             age = input("Write the new age for the student") 
+             course = input("Write the new course for the student") 
+
+             student["name"] = name
+             student["age"] = age
+             student["course"] = course
+
+             updated = True
+             print("Update Successfull!")
+
+        if not updated:
+             print("The student was not found")  
+
+    elif options == 6:
+       print("Exiting")
+
     else:
         print("Invalid option")
 
@@ -84,12 +104,14 @@ options = int(input(
     "Option 2 = View students\n"
     "Option 3 = Search Students\n"
     "Option 4 = Delete Student\n"
-    "Option 5 = Exit\n"
+    "Option 5 = Update a student\n"
+    "Option 6 = Exit\n"
+   
     "Choose an option: "
 ))
 
 
-while options != 5:
+while options != 6:
 
     functionality_to_choices(options)
 
@@ -98,6 +120,7 @@ while options != 5:
         "Option 2 = View students\n"
         "Option 3 = Search Students\n"
         "Option 4 = Delete Student\n"
-        "Option 5 = Exit\n"
+        "Option 5 = Update a student\n"
+        "Option 6 = exit\n"
         "Choose an option: "
     ))
