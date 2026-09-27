@@ -45,8 +45,9 @@ def functionality_to_choices(options):
            f"\n ID : {student["ID"]}\n" 
            f"name: {student['name']}\n"
            f"age: {student["age"]}\n"
-           f"course: {student["course"]}"  )
-
+           f"course: {student["course"]}\n"  
+           f"grade: {student['grade']}"
+           )
     elif options == 3:
       search = input("Enter the student ID")
       found = False
@@ -93,7 +94,19 @@ def functionality_to_choices(options):
              print("The student was not found")  
 
     elif options == 6:
-       print("Exiting")
+       grade = input("Choose the student ID")
+       graded = False
+       for student in students:
+          if grade == student["ID"]:
+             grade2 = input("Write the student grade ")
+             student["grade"] = grade2
+             graded = True
+             break
+
+       if not graded:
+          print(f"{grade} was not found")     
+
+             
 
     else:
         print("Invalid option")
@@ -105,13 +118,13 @@ options = int(input(
     "Option 3 = Search Students\n"
     "Option 4 = Delete Student\n"
     "Option 5 = Update a student\n"
-    "Option 6 = Exit\n"
+    "Option 6 = Add grades\n"
    
     "Choose an option: "
 ))
 
 
-while options != 6:
+while options != :
 
     functionality_to_choices(options)
 
@@ -121,6 +134,6 @@ while options != 6:
         "Option 3 = Search Students\n"
         "Option 4 = Delete Student\n"
         "Option 5 = Update a student\n"
-        "Option 6 = exit\n"
+        "Option 6 = add grades\n"
         "Choose an option: "
     ))
