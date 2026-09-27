@@ -1,4 +1,4 @@
-from grades import grading_system, average_marks
+from grades import grading_system, average_marks,grade_statistics
 
 students = [
     {
@@ -132,6 +132,9 @@ def functionality_to_choices(options):
         result = average_marks(students)
         print(result)
 
+    elif options == 8:
+        result = grade_statistics(students)
+        print(result)
 
 options = int(input(
     "Option 1 = Add a student\n"
@@ -141,11 +144,12 @@ options = int(input(
     "Option 5 = Update a student\n"
     "Option 6 = Add grades\n"
     "Option 7 = Average marks\n"
-    "Option 8 = Exit\n"
+    "Option 8 = Statistics\n"
+    "Option 9 = Exit"
     "Choose an option: "
 ))
 
-while options != 8:
+while options != 9:
     functionality_to_choices(options)
 
     options = int(input(
@@ -156,6 +160,7 @@ while options != 8:
         "Option 5 = Update a student\n"
         "Option 6 = Add grades\n"
         "Option 7 = Grade statistics\n"
-        "Option 8 = Exit\n"
+        "Option 8 = Statistics\n"
+        "Option 9 = exit"
         "Choose an option: "
     ))

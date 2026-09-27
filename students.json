@@ -1,0 +1,66 @@
+[
+    {
+        "ID": "001",
+        "name": "Anthony",
+        "age": 19,
+        "course": "Software Engineering",
+        "grade": "A",
+        "marks": 85
+    },
+    {
+        "ID": "002",
+        "name": "Kevin",
+        "age": 22,
+        "course": "Data Science",
+        "grade": "B",
+        "marks": 64
+    },
+    {
+        "ID": "003",
+        "name": "Brian",
+        "age": 20,
+        "course": "Cyber Security",
+        "grade": "B-",
+        "marks": 72
+    },
+    {
+        "ID": "004",
+        "name": "Mary",
+        "age": 21,
+        "course": "Computer Science",
+        "grade": "A",
+        "marks": 91
+    },
+    {
+        "ID": "005",
+        "name": "David",
+        "age": 23,
+        "course": "Information Technology",
+        "grade": "C",
+        "marks": 55
+    },
+    {
+        "ID": "006",
+        "name": "Sarah",
+        "age": 19,
+        "course": "Software Engineering",
+        "grade": "D",
+        "marks": 43
+    },
+    {
+        "ID": "007",
+        "name": "James",
+        "age": 24,
+        "course": "Data Science",
+        "grade": "B",
+        "marks": 68
+    },
+    {
+        "ID": "008",
+        "name": "Grace",
+        "age": 20,
+        "course": "Cyber Security",
+        "grade": "Failed!",
+        "marks": 35
+    }
+]

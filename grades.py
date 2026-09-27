@@ -1,3 +1,4 @@
+import math
 def grading_system(marks):
 
     if marks >= 80:
@@ -30,3 +31,14 @@ def average_marks(students):
     average = sum(marks) / len(students)
 
     return f"The average marks are {average}"
+
+def grade_statistics(students):
+    marks = []
+    for student in students:
+        mark = student["marks"]
+        marks.append(mark)
+        highest = max(marks)
+        lowest = min(marks)
+        average = (highest + lowest) / len(student)
+
+        return f"Highest: {highest}\n Lowest: {lowest}\n Average: {average}"
