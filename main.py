@@ -1,26 +1,17 @@
-from grades import grading_system, average_marks,grade_statistics
+from grades import grading_system, average_marks, grade_statistics
+import json
 
-students = [
-    {
-        "ID": "001",
-        "name": "Anthony",
-        "age": 19,
-        "course": "Software Engineering",
-        "grade": "Not assigned",
-        "marks": 0
-    },
-    {
-        "ID": "002",
-        "name": "Kevin",
-        "age": 22,
-        "course": "Data Science",
-        "grade": "Not assigned",
-        "marks": 0
-    }
-]
+with open("students.json", "r") as file:
+    students = json.load(file)
+
+
+def save_students():
+    with open("students.json", "w") as file:
+        json.dump(students, file, indent=4)
 
 
 def functionality_to_choices(options):
+
     if options == 1:
         id = input("Enter the students ID")
         duplicate = False
@@ -47,6 +38,7 @@ def functionality_to_choices(options):
 
             students.append(new_students)
             print("Student added Successfully!")
+            save_students()
 
     elif options == 2:
         for student in students:
@@ -84,6 +76,8 @@ def functionality_to_choices(options):
             if delete == student["ID"]:
                 students.remove(student)
                 deleted = True
+                save_students()
+                print("Student deleted successfully!")
                 break
 
         if not deleted:
@@ -104,6 +98,7 @@ def functionality_to_choices(options):
                 student["course"] = course
 
                 updated = True
+                save_students()
                 print("Update Successfull!")
                 break
 
@@ -123,6 +118,8 @@ def functionality_to_choices(options):
                 student["grade"] = finalgrade
 
                 graded = True
+                save_students()
+                print("Grade added successfully!")
                 break
 
         if not graded:
@@ -136,6 +133,7 @@ def functionality_to_choices(options):
         result = grade_statistics(students)
         print(result)
 
+
 options = int(input(
     "Option 1 = Add a student\n"
     "Option 2 = View students\n"
@@ -145,11 +143,12 @@ options = int(input(
     "Option 6 = Add grades\n"
     "Option 7 = Average marks\n"
     "Option 8 = Statistics\n"
-    "Option 9 = Exit"
+    "Option 9 = Exit\n"
     "Choose an option: "
 ))
 
 while options != 9:
+
     functionality_to_choices(options)
 
     options = int(input(
@@ -159,8 +158,8 @@ while options != 9:
         "Option 4 = Delete Student\n"
         "Option 5 = Update a student\n"
         "Option 6 = Add grades\n"
-        "Option 7 = Grade statistics\n"
+        "Option 7 = Average marks\n"
         "Option 8 = Statistics\n"
-        "Option 9 = exit"
+        "Option 9 = Exit\n"
         "Choose an option: "
     ))
