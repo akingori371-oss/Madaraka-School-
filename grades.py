@@ -1,4 +1,3 @@
-import math
 def grading_system(marks):
 
     if marks >= 80:
@@ -22,23 +21,37 @@ def grading_system(marks):
 
 def average_marks(students):
 
+    if not students:
+        return "No students available."
+
     marks = []
 
     for student in students:
-        mark = student["marks"]
+        mark = student.marks
         marks.append(mark)
 
-    average = sum(marks) / len(students)
+    average = sum(marks) / len(marks)
 
-    return f"The average marks are {average}"
+    return f"The average marks are {average:.2f}"
+
 
 def grade_statistics(students):
-    marks = []
-    for student in students:
-        mark = student["marks"]
-        marks.append(mark)
-        highest = max(marks)
-        lowest = min(marks)
-        average = (highest + lowest) / len(student)
 
-        return f"Highest: {highest}\n Lowest: {lowest}\n Average: {average}"
+    if not students:
+        return "No students available."
+
+    marks = []
+
+    for student in students:
+        mark = student.marks
+        marks.append(mark)
+
+    highest = max(marks)
+    lowest = min(marks)
+    average = sum(marks) / len(marks)
+
+    return (
+        f"Highest: {highest}\n"
+        f"Lowest: {lowest}\n"
+        f"Average: {average:.2f}"
+    )
