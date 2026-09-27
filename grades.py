@@ -10,4 +10,6 @@ def grading_system(marks):
     elif marks >= 40:
         return "D"
     else:
-        return "Failed!"                    
+        return "Failed!"   
+
+    def average_marks():                 

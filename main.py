@@ -1,3 +1,4 @@
+from grades import grading_system
 students = [
     {
         "ID": "001",
@@ -100,13 +101,16 @@ def functionality_to_choices(options):
        graded = False
        for student in students:
           if grade == student["ID"]:
-             grade2 = input("Write the student grade ")
-             student["grade"] = grade2
-             graded = True
-             break
-
+           marks = int(input("Write the students marks"))
+           finalgrade = grading_system(marks)
+           student["grade"] = f"{finalgrade}"
+           graded = True
+           break
        if not graded:
-          print(f"{grade} was not found")     
+          print(f"{grade} was not found")
+       
+
+            
 
              
 
