@@ -3,13 +3,15 @@ students = [
         "ID": "001",
         "name": "Anthony",
         "age": 19,
-        "course": "Software Engineering"
+        "course": "Software Engineering",
+        "grade" : "Not assigned"
     },
     {
         "ID": "002",
         "name": "Kevin",
         "age": 22,
-        "course": "Data Science"
+        "course": "Data Science",
+        "grade" : "Not assigned"
     }
 ]
 
